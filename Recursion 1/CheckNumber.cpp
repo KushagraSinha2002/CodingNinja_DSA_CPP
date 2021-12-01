@@ -4,16 +4,17 @@ using namespace std;
 
 bool checkNumber(int input[], int size, int x) {
 
-    bool check = false;
-
-    if (*input == x)
+    if (size==0)
     {
-        check = true;
+        return false;
     }
-    
+    if(input[0]==x)
+    {
+        return true;
+    }
   
-    int smallOutput = checkNumber(input + 1, size - 1, x);
-    return check;
+    bool smallOutput = checkNumber(input + 1, size - 1, x);
+    return smallOutput;
 }
 
 

@@ -1,11 +1,11 @@
 #include<iostream>
 using namespace std;
 
-int power(int x, int n) {
-  cout << n << endl;
-  if (n == 2)
+int power(int x, int n) { 
+    
+  if (n == 0)
   {
-      return x * x;
+      return 1;
   }
   
   int smallOutput = power(x,n-1);
