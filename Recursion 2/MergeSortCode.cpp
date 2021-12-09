@@ -10,8 +10,7 @@ void merge(int input[], int start, int end){
   int i = start;
   int j = mid + 1;
   int k = 0;
-  
-  
+
 
   while(i <= mid & j <= end){
     if (input[i] < input[j])
