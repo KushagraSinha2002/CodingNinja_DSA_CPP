@@ -96,6 +96,7 @@ int keypad(int num, string output[]){
     
     int smallKeypadSize = keypad(smallNum, output);
     
+    // Make copies of rows
     for(int i = 0; i < smallStringSize - 1; i++){
         for(int j = 0; j < smallKeypadSize; j++){
             output[j + (i + 1)*smallKeypadSize] = output[j];
@@ -104,6 +105,7 @@ int keypad(int num, string output[]){
     
     int k = 0;
     
+    // Attach string element of last digit in every copy respectively
     for(int i = 0; i < smallStringSize; i++){
         for(int j = 0; j < smallKeypadSize; j++){
             output[k] = output[k] + smallString[i];
