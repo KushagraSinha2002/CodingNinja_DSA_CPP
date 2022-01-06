@@ -1,34 +1,22 @@
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
-#include<string.h>
-
-bool helper(char input[], int index, bool temp){
-    
-    if(index == strlen(input)/2){
-        return temp;
+bool helper(char input[], int start, int end){
+    if(start >= end){
+        return true;
     }
-    
-    if(input[index] == input[strlen(input)-index - 1]){
-        temp = true;
+    if(input[start] != input[end]){
+        return false;
     }
-    else{
-        temp = false;
-    }
-    
-    return helper(input,index + 1, temp);
-    
+    return helper(input,start+1,end-1);
 }
 
 bool checkPalindrome(char input[]) {
-    
-    if (strlen(input) == 0){
-        return true;
-    }
-    
-    return helper(input,0,false);
-
+	int start = 0;
+    int end = strlen(input) - 1;
+    return helper(input, start, end);
 }
 
 int main() {
