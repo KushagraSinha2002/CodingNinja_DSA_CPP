@@ -2,41 +2,24 @@
 
 using namespace std;
 
-#include <string.h>
-
-#include <string.h>
-
-void helper(char input[], int index, int size){
+void replacePi(char input[]) {
     
-    if(index == strlen(input)-1){
+    if(input[0] == '\0'){
         return;
     }
-    
-    if(input[index] == 'p'){
-        if(input[index + 1] == 'i'){
-            
-            size = size + 2;
-            
-            for ( int i = index + 4; i < size; i++) {
-                input[i] = input[i - 2];
+    if(input[0] == 'p'){
+        if(input[1] == 'i'){
+            int size = strlen(input);
+            for(int i = size; i != 0; i--){
+                input[i+2] = input[i];
             }
-            
-            input[index] = '3';
-            input[index + 1] = '.';
-            input[index + 2] = '1';
-            input[index + 3] = '4';
+            input[0] = '3';
+            input[1] = '.';
+            input[2] = '1';
+            input[3] = '4';
         }
     }
-    
-    helper(input,index + 1, size);
-    
-}
-
-void replacePi(char input[]) {
-	
-	int size = strlen(input);
-    helper(input,0,size);
-
+    replacePi(input+1);
 }
 
 int main() {
