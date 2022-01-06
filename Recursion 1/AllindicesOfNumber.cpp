@@ -3,27 +3,18 @@
 using namespace std;
 
 
-int helper (int input[], int size, int x, int output[], int index)
-{
-    if(size==0){
+int n = 0;
+
+int allIndexes(int input[], int size, int x, int output[]) {
+	if(size < 0){
         return 0;
     }
-    int s;
-    if(input[0]==x){
-        output[0]=index;
-        s=helper(input + 1, size - 1, x, output+1, ++index)+1;
+    int smallOutput = allIndexes(input, size-1, x, output);
+    if(input[size] == x){
+        output[n] = size;
+        n++;
     }
-    else
-    {
-        s=helper(input + 1, size - 1, x, output, ++index);
-    }
-    return s;
-    
-}
-int allIndexes(int input[], int size, int x, int output[]) {
-  
-  return helper(input, size, x, output, 0);
-
+    return n;
 }
 
 
