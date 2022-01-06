@@ -2,16 +2,14 @@
 
 using namespace std;
 
-int multiplyNumbers(int x, int y){
-    
-    if(y == 0){
+int multiplyNumbers(int m, int n) {
+	if(n == 0){
         return 0;
     }
+    int smallOutput = multiplyNumbers(m, n-1);
+    smallOutput += m;
     
-    int smallOutput = multiplyNumbers(x,y - 1);
-    return x + smallOutput;
-    
-    
+    return smallOutput;
 }
 
 int main() {
