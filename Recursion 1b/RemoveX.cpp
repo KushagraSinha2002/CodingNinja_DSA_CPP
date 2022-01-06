@@ -2,34 +2,21 @@
 
 using namespace std;
 
-#include <string.h>
-
-
-void helper(char input[], int index, int size){
-    
-    if(input[index] == '\0'){
+void removeX(char input[]) {
+    if(input[0] == '\0'){
         return;
     }
-    
-    if(input[index] == 'x'){
-        for(int i = index; i < size ; i++){
-            input[i] = input[ i + 1];
+    if(input[0] == 'x'){
+        int i;
+        for(i = 0; input[i] != '\0'; i++){
+            input[i] = input[i+1];
         }
-        size--;
+        input[i] = '\0';
+        removeX(input);
     }
-    else{
-        index++;
-    }
-    
-    helper(input, index, size);
-    
+	removeX(input+1);
 }
 
-void removeX(char input[]) {
-    int size = strlen(input);
-    helper(input, 0,size);
-
-}
 
 int main() {
     char input[100];
