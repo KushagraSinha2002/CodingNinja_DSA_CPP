@@ -2,29 +2,17 @@
 
 using namespace std;
 
-int helper(int num, int index){
-    
-    if(num == 0){
-        return index;
-    }
-    
-    if(num > 0){
-        if(num % 10 == 0){
-            index ++;;
-        }
-    }
-    
-    int smallOutput = helper(num/10,0);
-    return index + smallOutput;
-    
-}
-
-int countZeros(int num) {
-    if(num == 0){
+int n = 0;
+int countZeros(int n) {
+	if(n == 0){
         return 1;
     }
-    return helper(num,0);
+    if(n%10 == 0){
+        n++;
+    }
+    int smallOutput = countZeros(n/10);
     
+    return n;
 }
 
 int main() {
