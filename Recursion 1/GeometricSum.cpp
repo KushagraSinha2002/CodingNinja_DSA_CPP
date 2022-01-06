@@ -5,13 +5,10 @@
 using namespace std;
 
 double geometricSum(int k){
-    
     if(k < 0){
         return 0;
     }
-    
     double power = pow(2,k);
-    
     return 1.0/power + geometricSum(k-1);
 }
 
