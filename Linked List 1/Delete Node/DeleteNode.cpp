@@ -38,14 +38,30 @@ Node *takeinput()
 	return head;
 }
 
+void print(Node *head)
+{
+	Node *temp = head;
+	while (temp != NULL)
+	{
+		cout << temp->data << " ";
+		temp = temp->next;
+	}
+	cout << endl;
+}
+
 int main()
 {
 	int t;
 	cin >> t;
+
 	while (t--)
 	{
 		Node *head = takeinput();
-		cout << length(head) << endl;
+		int pos;
+		cin >> pos;
+		head = deleteNode(head, pos);
+		print(head);
 	}
+
 	return 0;
 }
