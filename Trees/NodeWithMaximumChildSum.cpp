@@ -20,36 +20,36 @@ class TreeNode {
 };
 
 template <typename T>
-class MaxNodePair{
+class MaxNode{
     public:
     TreeNode<T>* node;
     int sum;
 };
-
-MaxNodePair<int>* MaxNodeHelper(TreeNode<int>* root){
-    if(root == NULL){
-        MaxNodePair<int>* pair = new MaxNodePair<int>();
+MaxNode<int>* MaxNodeHelper(TreeNode<int>* root){
+    if(root==NULL){
+        MaxNode<int>* pair = new MaxNode<int>();
         pair->node = NULL;
         pair->sum = INT_MIN;
-        return pair;
     }
+    // Get Sum of the root node with immediate children
     int sum = root->data;
     for(int i=0;i<root->children.size();i++){
         sum += root->children[i]->data;
     }
-    MaxNodePair<int>* ans = new MaxNodePair<int>();
+    // Get Sum of the next node with immediate children
+    MaxNode<int>* ans = new MaxNode<int>();
     ans->node = root;
     ans->sum = sum;
-
     for(int i=0;i<root->children.size();i++){
-        MaxNodePair<int>* child = MaxNodeHelper(root->children[i]);
+        MaxNode<int>* child = new MaxNode<int>();
+        // call recursion
+        child = MaxNodeHelper(root->children[i]);
         if(child->sum > ans->sum){
-            ans = child;
+            ans->node = child->node;
         }
     }
     return ans;
 }
-
 TreeNode<int>* maxSumNode(TreeNode<int>* root) {
     return MaxNodeHelper(root)->node;
 }
