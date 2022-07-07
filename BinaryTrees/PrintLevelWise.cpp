@@ -15,6 +15,7 @@ Print -1 if the child doesn't exist.
 Example:
                                 1
                             /       \
+                          /           \
                         2               3
                       /   \           /   \
                     4       5       5       6
