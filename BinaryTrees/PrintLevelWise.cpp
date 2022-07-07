@@ -16,8 +16,8 @@ Example:
                                 1
                             /       \
                         2               3
-                      /   \           /   \
-                    4       5       5       6
+                      /               /   \
+                    4               5       6
                       \
                         7
 For the above depicted Binary Tree, the level order travel will be printed as followed:
