@@ -73,26 +73,20 @@ class BinaryTreeNode {
 using namespace std;
 
 BinaryTreeNode<int>* buildTree(int *preorder, int preLength, int *inorder, int inLength) {
-    // Write your code here
-	
-    if(preLength==0)
-    {
+    if(preLength == 0){
         return NULL;
-    }
-    
-    BinaryTreeNode<int> *root = new BinaryTreeNode<int>(preorder[0]);
+	}
     int i;
-    for(i=0;i<preLength;i++)
-    {
-        if(inorder[i] == preorder[0])
-        {
+    for(i=0;i<preLength;i++){
+        if(inorder[i] == preorder[0]){
             break;
-        }
+		}
     }
     
+    BinaryTreeNode<int>* root = new BinaryTreeNode<int>(preorder[0]);
     
-    root->left = buildTree(preorder+1,i,inorder,i);
-    root->right= buildTree(preorder+i+1,preLength - i - 1,inorder+i+1,inLength - i -1);
+    root->left = buildTree(preorder+1, i, inorder, i);
+	root->right = buildTree(preorder+i+1, preLength-i-1, inorder+i+1, inLength-i-1);
 }
 
 BinaryTreeNode<int> *takeInput() {
