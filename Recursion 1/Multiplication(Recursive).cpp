@@ -20,7 +20,7 @@ Sample Input 2 :
 0
 Sample Output 2 :
 0
-/*
+*/
 
 #include <iostream>
 using namespace std;
