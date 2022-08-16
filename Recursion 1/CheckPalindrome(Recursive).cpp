@@ -1,22 +1,20 @@
 #include <iostream>
 #include <cstring>
-
 using namespace std;
 
-bool helper(char input[], int start, int end){
-    if(start >= end){
+bool checkPalindrome(char arr[],int start,int end){
+    if(start>end){
         return true;
     }
-    if(input[start] != input[end]){
+    if(arr[start]!=arr[end]){
         return false;
     }
-    return helper(input,start+1,end-1);
+    return checkPalindrome(arr,start+1,end-1);
 }
 
 bool checkPalindrome(char input[]) {
-	int start = 0;
-    int end = strlen(input) - 1;
-    return helper(input, start, end);
+    int len = strlen(input);
+    return checkPalindrome(input,0,len-1);
 }
 
 int main() {
