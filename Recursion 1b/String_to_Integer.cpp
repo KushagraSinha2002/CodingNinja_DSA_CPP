@@ -1,20 +1,19 @@
 #include <iostream>
-#include <cmath>
-
+#include<cstring>
+#include<cmath>
 using namespace std;
 
-int a, num, n;
+int helper(char input[], int num){
+    if(input[0] == '\0'){
+        return num;
+    }
+    return helper(input+1,num + (input[0]-48) * pow(10,strlen(input)-1));
+}
 int stringToNumber(char input[]) {
-	if(input[0] == '\0'){
-        n = -1;
+    if(input[0] == '\0'){
         return 0;
     }
-	int smallOutput = stringToNumber(input+1);
-	n++;
-	a = input[0] - 48;
-	num = a * (pow(10,n));
-	
-	return smallOutput + num;
+    return helper(input,0);
 }
 
 int main() {
